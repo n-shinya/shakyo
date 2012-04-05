@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js/handlebars-1.0.0.beta.6.js"></script>
+    </head>
+    <body>
+        <div id="body">
+        </div>
+        <script type="text/x-handlebars-template" id="entry-template">
+            <div class="entry" id="entry">
+                <h1>{{title}}</h1>
+                <div class="body">
+                    <p>{{body}}</p>
+                </div>
+            </div>
+        </script>
+        <script type="text/javascript">
+            $(function(){
+                var source = $('#entry-template').html();
+                var template = Handlebars.compile(source);
+                var context = {
+                    title :'Hello handlebars.',
+                    body: 'Hello.'
+                }
+                var result = template(context);
+                $('#body').append(result);
+            });
+        </script>
+    </body>
+</html>
